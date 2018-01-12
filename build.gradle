@@ -2,19 +2,34 @@ group 'com.nsiit'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
 
+ext{
+    springBootVersion="1.5.9.RELEASE"
+}
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+buildscript {
+    repositories {
+        maven{
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
 
 repositories {
     maven{
         url "http://maven.aliyun.com/nexus/content/groups/public/"
     }
-
-}
-
-ext{
-    springBootVersion="1.5.9.RELEASE"
 }
 
 dependencies {
