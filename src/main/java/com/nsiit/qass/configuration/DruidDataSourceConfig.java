@@ -46,6 +46,7 @@ public class DruidDataSourceConfig implements EnvironmentAware {
         datasource.setDriverClassName(propertyResolver.getProperty("driver-class-name"));
         datasource.setUsername(propertyResolver.getProperty("username"));
         datasource.setPassword(propertyResolver.getProperty("password"));
+        System.out.println("============================"+propertyResolver.getProperty("initialSize"));
         datasource.setInitialSize(Integer.valueOf(propertyResolver.getProperty("initialSize")));
         datasource.setMinIdle(Integer.valueOf(propertyResolver.getProperty("minIdle")));
         datasource.setMaxWait(Long.valueOf(propertyResolver.getProperty("maxWait")));

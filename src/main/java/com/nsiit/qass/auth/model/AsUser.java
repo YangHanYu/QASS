@@ -5,10 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class User implements UserDetails{
-    private String sid;
-    private String username;
-    private String password;
+public class AsUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -17,12 +14,12 @@ public class User implements UserDetails{
 
     @Override
     public String getPassword() {
-        return password;
+        return null;
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return null;
     }
 
     @Override
@@ -43,21 +40,5 @@ public class User implements UserDetails{
     @Override
     public boolean isEnabled() {
         return false;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getSid() {
-        return sid;
-    }
-
-    public void setSid(String sid) {
-        this.sid = sid;
     }
 }
